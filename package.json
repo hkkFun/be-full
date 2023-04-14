@@ -1,6 +1,6 @@
 {
-  "name": "be-full",
-  "version": "0.1.4",
+  "name": "be-fullscreen",
+  "version": "0.1.5",
   "description": "🍔 任意元素全屏显示",
   "main": "dist/main.min.js",
   "unpkg": "dist/main.min.js",
@@ -22,7 +22,7 @@
     "full",
     "screen"
   ],
-  "author": "any86",
+  "author": "hkk",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/any86/be-full/issues"
