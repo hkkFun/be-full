@@ -18,6 +18,7 @@ let TYPE_REQUEST_FULL_SCREEN: RFSMethodName = 'requestFullscreen';
 let TYPE_EXIT_FULL_SCREEN: EFSMethodName = 'exitFullscreen';
 let TYPE_FULL_SCREEN_ELEMENT: FSEPropName = 'fullscreenElement';
 let TYPE_ON_FULL_SCREEN_CHANGE: ONFSCPropName = 'onfullscreenchange';
+let isEnableFullScreen = true;
 
 if (`webkitRequestFullScreen` in DOC_EL) {
     TYPE_REQUEST_FULL_SCREEN = 'webkitRequestFullScreen';
@@ -35,7 +36,8 @@ if (`webkitRequestFullScreen` in DOC_EL) {
     TYPE_FULL_SCREEN_ELEMENT = 'mozFullScreenElement';
     TYPE_ON_FULL_SCREEN_CHANGE = 'onmozfullscreenchange';
 } else if (!(`requestFullscreen` in DOC_EL)) {
-    throw `当前浏览器不支持Fullscreen API !`;
+    isEnableFullScreen = false;
+    console.log(`当前浏览器不支持Fullscreen API !`);
 }
 
 /**
@@ -96,4 +98,12 @@ export function toggleFull(el?: HTMLElement, backgroundColor?: string): boolean 
         beFull(el, backgroundColor)
         return true;
     }
+}
+
+/**
+ * 是否支持全屏
+ * @returns Promise
+ */
+export function isSupportFullScreen(): any {
+    return isEnableFullScreen;
 }
